@@ -7,8 +7,12 @@ public class EnemyFire : MonoBehaviour {
     public GameObject enemyPrefab;
     public float enemySpeed = 10f;
 
+    private AudioSource enemyAudioSource;
+
     // Use this for initialization
     void Start () {
+        //Fetch the AudioSource from the GameObject
+        enemyAudioSource = GetComponent<AudioSource>();
         StartCoroutine(FireObject());
     }
 	
@@ -32,6 +36,7 @@ public class EnemyFire : MonoBehaviour {
 
             // Add velocity to the bullet
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * enemySpeed;
+            enemyAudioSource.Play();
         }
 
     }

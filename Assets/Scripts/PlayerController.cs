@@ -8,10 +8,13 @@ public class PlayerController : MonoBehaviour {
     public Transform bulletSpawn;
     public float bulletSpeed = 8f;
 
+    private AudioSource bulletAudioSource;
+
     // Use this for initialization
     void Start () {
-		
-	}
+        bulletAudioSource = GetComponent<AudioSource>();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -20,6 +23,12 @@ public class PlayerController : MonoBehaviour {
             Debug.Log("com.byron:.PrimaryIndexTrigger");
             Fire();
         }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Debug.Log("Space key was pressed.");
+        }
+            
     }
 
     void Fire()
@@ -32,7 +41,7 @@ public class PlayerController : MonoBehaviour {
 
         // Add velocity to the bullet
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * bulletSpeed;
-
+        bulletAudioSource.Play();
         // Destroy the bullet after 2 seconds
         Destroy(bullet, 2.0f);
     }
