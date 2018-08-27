@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using TMPro;
 
 public class EnemyCollision : MonoBehaviour
 {
@@ -9,8 +8,11 @@ public class EnemyCollision : MonoBehaviour
     {
         if (col.gameObject.name == "Bullet")
         {
-            Destroy(gameObject);
+            GameObject text = GameObject.Find("TextMeshPro");
+            ScoreCount countComponent = text.GetComponent<ScoreCount>();
+            countComponent.updateText();
         }
         Destroy(gameObject);
     }
 }
+

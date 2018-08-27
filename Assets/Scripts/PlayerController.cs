@@ -39,10 +39,12 @@ public class PlayerController : MonoBehaviour {
             bulletSpawn.position,
             bulletSpawn.rotation);
 
+        bullet.name = "Bullet";
+
         // Add velocity to the bullet
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * bulletSpeed;
         bulletAudioSource.Play();
         // Destroy the bullet after 2 seconds
-        Destroy(bullet, 2.0f);
+        Destroy(bullet, 1.0f);
     }
 }

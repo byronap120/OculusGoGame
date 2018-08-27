@@ -23,9 +23,9 @@ public class EnemyFire : MonoBehaviour {
 
     IEnumerator FireObject()
     {
-        while(true)
+        while (true)
         {
-            int timeToWait = Random.Range(1, 4);
+            int timeToWait = Random.Range(1, 7);
             yield return new WaitForSeconds(timeToWait);
 
             // Create the Bullet from the Bullet Prefab
