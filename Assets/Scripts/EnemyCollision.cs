@@ -8,7 +8,7 @@ public class EnemyCollision : MonoBehaviour
     {
         if (col.gameObject.name == "Bullet")
         {
-            GameObject text = GameObject.Find("TextMeshPro");
+            GameObject text = GameObject.Find("ScoreText");
             ScoreCount countComponent = text.GetComponent<ScoreCount>();
             countComponent.updateText();
         }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
@@ -21,12 +19,10 @@ public class PlayerController : MonoBehaviour {
         if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
         {
             Debug.Log("com.byron:.PrimaryIndexTrigger");
-            Fire();
-        }
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Debug.Log("Space key was pressed.");
+            if (!InpuManager.isGamePaused)
+            {
+                Fire();
+            }   
         }
             
     }
